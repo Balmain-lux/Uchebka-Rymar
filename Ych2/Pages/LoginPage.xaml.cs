@@ -29,7 +29,7 @@ namespace Ych2.Pages
         {
             if (string.IsNullOrEmpty(txbLogin.Text) || string.IsNullOrEmpty(pswbPassword.Password))
             {
-                MessageBox.Show("ГОЛОВУ ПЖ НАПРЯГИ... ПОЛЯ ВСЕ НУЖНО ЗАПОЛНИТЬ", "ОШИБКА АВТОРИЗАЦИИ", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Не заполнен логин", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             try
             {
@@ -41,13 +41,13 @@ namespace Ych2.Pages
                 }
                 else
                 {
-                    MessageBox.Show("и такие дни выбают", "вспомни данные для входа", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Не верные данные", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"ошибка при подключении бд {ex.Message}", "грустно конечно", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"ошибка при подключении бд {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
         }

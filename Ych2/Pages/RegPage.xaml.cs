@@ -51,13 +51,13 @@ namespace Ych2.Pages
         {
             if (string.IsNullOrWhiteSpace(txtName.Text))
             {
-                MessageBox.Show("ТЫ ИМЕНИ СВОЕГО НЕ ЗНАЕШЬ!?", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Не заполнено Имя", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
                 txtName.Focus();
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtSurname.Text))
             {
-                MessageBox.Show("ФАМИЛИЮ ВВЕДИ", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Не заполнено Фамилия", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
                 txtSurname.Focus();
                 return false;
             }
@@ -84,7 +84,7 @@ namespace Ych2.Pages
             var existingLogin = DBCon.Conn.comfortEntities.Logins.FirstOrDefault(l => l.Login == txtLogin.Text.Trim());
             if (existingLogin != null)
             {
-                MessageBox.Show("БУДЬ ОРИГИНАЛЬНЕЕ...Такой логин уже существует! ", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Такой логин уже существует!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
                 txtLogin.Focus();
                 return false;
             }
@@ -98,7 +98,7 @@ namespace Ych2.Pages
 
             if (pswPassword.Password != pswConfirmPassword.Password)
             {
-                MessageBox.Show("ТЫ СВОЕЙ ЖЕ ПАРОЛЬ ЗАБЫЛ ЗА 5 СЕК.?!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Пароли не совпадают!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
                 pswConfirmPassword.Focus();
                 return false;
             }
@@ -143,7 +143,7 @@ namespace Ych2.Pages
                 DBCon.Conn.comfortEntities.Logins.Add(newLogin);
                 DBCon.Conn.comfortEntities.SaveChanges();
 
-                MessageBox.Show("ПОЗДРАВЛЯЮ!ТЫ СМОГ ЗАПОЛНИТЬ ВСЕ ПОЛЯ...О ЧУДО", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Успешная регистрация", "Успешно", MessageBoxButton.OK, MessageBoxImage.Information);
                 NavigationService.Navigate(new LoginPage());
             }
             catch (Exception ex)

@@ -41,7 +41,7 @@ namespace Ych2.Pages
                     DBCon.Conn.comfortEntities.Partners.Add(partner);
                 }
                 DBCon.Conn.comfortEntities.SaveChanges();
-                MessageBox.Show("ВСЁ НОРМ", "вау", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Операция прошла успешно", "Сохранение", MessageBoxButton.OK, MessageBoxImage.Information);
                 NavigationService.Navigate(new PartnerListPage());
             }
             catch (Exception ex) 
@@ -53,7 +53,7 @@ namespace Ych2.Pages
 
         private void btnOtmena_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("НУ ОКЕЕЕЙ...", "ГАЛЯ,ОТМЕНА", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Отмена операции", "Отмена" , MessageBoxButton.OK, MessageBoxImage.Information);
             NavigationService.Navigate(new PartnerListPage());
         }
     }
